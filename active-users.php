@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Wordpress Active Users
+ * Plugin Name: Active Users List
  * Description: This is a plugin which lists all the active/Logged in users.
  * Version:     1.0
  * Author:      Ambarish Chatterjee

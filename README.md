@@ -1,4 +1,4 @@
-# wordpress-active-users
+# active-users-list
 
 List all the current active users
 

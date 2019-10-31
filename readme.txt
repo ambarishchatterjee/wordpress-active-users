@@ -1,4 +1,4 @@
-=== Wordpress Active Users ===
+=== Active Users List ===
 Contributors: ambarishchatterjee89
 Donate link: https://paypal.me/AmbarishChatterjee?locale.x=en_GB
 Tags: users, active-users, online-users, available-users
