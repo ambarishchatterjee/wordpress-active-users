@@ -7,7 +7,7 @@
  * Author URI:  https://github.com/ambarishchatterjee
  * License:     GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: active-users
+ * Text Domain: active-users-list
  */
 
 if ( !function_exists( 'add_action' ) ) {
@@ -15,8 +15,7 @@ if ( !function_exists( 'add_action' ) ) {
 	exit;
 }
 
-if(!function_exists('loggedInUsers')){
-    function loggedInUsers(){
+    function aul_loggedInUsers(){
 	
         if(is_admin_bar_showing()){
             
@@ -32,12 +31,10 @@ if(!function_exists('loggedInUsers')){
             echo '</ul>';
         }
     }    
-} 
 
-add_shortcode( 'Available-Users', 'loggedInUsers' );
+add_shortcode( 'Available-Users', 'aul_loggedInUsers' );
 
-if(!function_exists('loggedInUsers_session')){
-    function loggedInUsers_session()
+    function aul_loggedInUsers_session()
     {
         global $wpdb;
         if(is_user_logged_in())
@@ -47,11 +44,9 @@ if(!function_exists('loggedInUsers_session')){
         }
          $user_id;
     }    
-}
-add_action('init','loggedInUsers_session');
+add_action('init','aul_loggedInUsers_session');
 
-if(!function_exists('loggedOutUsers_session')){
-    function loggedOutUsers_session() {
+    function aul_loggedOutUsers_session() {
         global $wpdb;
             if(is_user_logged_in())
             {
@@ -60,12 +55,11 @@ if(!function_exists('loggedOutUsers_session')){
             }
          $user_id;
         }        
-}
-add_action('wp_logout', 'loggedOutUsers_session');
+add_action('wp_logout', 'aul_loggedOutUsers_session');
 
 
 // We need some CSS
-function active_users_css() {
+function aul_active_users_css() {
 	echo "
 	<style type='text/css'>
 	ul.activeUsers li {
@@ -81,4 +75,4 @@ function active_users_css() {
 	";
 }
 
-add_action( 'wp_head', 'active_users_css' );
+add_action( 'wp_head', 'aul_active_users_css' );
