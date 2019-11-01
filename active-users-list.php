@@ -23,7 +23,7 @@ if ( !function_exists( 'add_action' ) ) {
             global $wpdb;
             $users=$wpdb->get_results( 'SELECT * FROM wp_users where user_status="1"', 'ARRAY_A');
             echo '<h3>Active Users</h3>';
-            echo '<ul class="activeUsers">';
+            echo '<ul class="aul_activeUsers">';
             foreach( $users as $user )
         { 
             echo '<li>'.$user['user_login'].'</li>';
@@ -61,15 +61,24 @@ add_action('wp_logout', 'aul_loggedOutUsers_session');
 // We need some CSS
 function aul_active_users_css() {
 	echo "
-	<style type='text/css'>
-	ul.activeUsers li {
+    <style type='text/css'>
+    ul.aul_activeUsers {
+        padding: 0;
+    }
+	ul.aul_activeUsers li {
         list-style: none;
-        font-family: cursive;
         text-transform: capitalize;
     }
-    ul.activeUsers li:before {
-        content: '-> ';
-        color: #31ef31;
+    ul.aul_activeUsers li:before {
+        content: '';
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        -moz-border-radius: 7.5px;
+        -webkit-border-radius: 7.5px;
+        border-radius: 7.5px;
+        background-color: #31ef31;
+        margin-right: 10px;
     }
 	</style>
 	";
